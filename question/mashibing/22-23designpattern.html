@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. 单例模式：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这 个实例。 | SUCKED BloG</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/img/logo.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.35bcedcf.css" as="style"><link rel="preload" href="/assets/js/app.42575a28.js" as="script"><link rel="preload" href="/assets/js/2.0d7d09b8.js" as="script"><link rel="preload" href="/assets/js/129.6100ddb1.js" as="script"><link rel="prefetch" href="/assets/js/10.1a30ebe5.js"><link rel="prefetch" href="/assets/js/100.022f696a.js"><link rel="prefetch" href="/assets/js/101.06eb0acb.js"><link rel="prefetch" href="/assets/js/102.e944c220.js"><link rel="prefetch" href="/assets/js/103.45b9da9a.js"><link rel="prefetch" href="/assets/js/104.cf53f5d1.js"><link rel="prefetch" href="/assets/js/105.200d7fe5.js"><link rel="prefetch" href="/assets/js/106.a0cc3502.js"><link rel="prefetch" href="/assets/js/107.4a71d17e.js"><link rel="prefetch" href="/assets/js/108.d7a39a75.js"><link rel="prefetch" href="/assets/js/109.35619cf9.js"><link rel="prefetch" href="/assets/js/11.f78ae8b3.js"><link rel="prefetch" href="/assets/js/110.f667d72e.js"><link rel="prefetch" href="/assets/js/111.de83ce6f.js"><link rel="prefetch" href="/assets/js/112.417d40bf.js"><link rel="prefetch" href="/assets/js/113.0f26c1ca.js"><link rel="prefetch" href="/assets/js/114.c7014acb.js"><link rel="prefetch" href="/assets/js/115.b502c0f1.js"><link rel="prefetch" href="/assets/js/116.10fb230e.js"><link rel="prefetch" href="/assets/js/117.f7cb9e2a.js"><link rel="prefetch" href="/assets/js/118.978d3075.js"><link rel="prefetch" href="/assets/js/119.09272191.js"><link rel="prefetch" href="/assets/js/12.140aa2af.js"><link rel="prefetch" href="/assets/js/120.32b5dbd7.js"><link rel="prefetch" href="/assets/js/121.8d618bbb.js"><link rel="prefetch" href="/assets/js/122.dcd4190d.js"><link rel="prefetch" href="/assets/js/123.2ee061d1.js"><link rel="prefetch" href="/assets/js/124.5a3760a7.js"><link rel="prefetch" href="/assets/js/125.a874a4bc.js"><link rel="prefetch" href="/assets/js/126.c6c6b7e6.js"><link rel="prefetch" href="/assets/js/127.38c35051.js"><link rel="prefetch" href="/assets/js/128.8d775ac8.js"><link rel="prefetch" href="/assets/js/13.b2a6e590.js"><link rel="prefetch" href="/assets/js/130.9a83da2a.js"><link rel="prefetch" href="/assets/js/131.22de7670.js"><link rel="prefetch" href="/assets/js/132.f88798bf.js"><link rel="prefetch" href="/assets/js/133.925bbfed.js"><link rel="prefetch" href="/assets/js/134.481fad71.js"><link rel="prefetch" href="/assets/js/135.c3efb09b.js"><link rel="prefetch" href="/assets/js/136.758c447a.js"><link rel="prefetch" href="/assets/js/137.dcde1032.js"><link rel="prefetch" href="/assets/js/138.616a346b.js"><link rel="prefetch" href="/assets/js/139.b58dd07f.js"><link rel="prefetch" href="/assets/js/14.15374560.js"><link rel="prefetch" href="/assets/js/140.62b4c7ea.js"><link rel="prefetch" href="/assets/js/15.ffd155fa.js"><link rel="prefetch" href="/assets/js/16.feb1b022.js"><link rel="prefetch" href="/assets/js/17.6d491eb6.js"><link rel="prefetch" href="/assets/js/18.03ddaa95.js"><link rel="prefetch" href="/assets/js/19.021bbcc8.js"><link rel="prefetch" href="/assets/js/20.8aa708b0.js"><link rel="prefetch" href="/assets/js/21.59d7a21e.js"><link rel="prefetch" href="/assets/js/22.21597439.js"><link rel="prefetch" href="/assets/js/23.77303f0b.js"><link rel="prefetch" href="/assets/js/24.0789ed5b.js"><link rel="prefetch" href="/assets/js/25.244a12a8.js"><link rel="prefetch" href="/assets/js/26.a6ee95e4.js"><link rel="prefetch" href="/assets/js/27.9e0f0e9d.js"><link rel="prefetch" href="/assets/js/28.189031c5.js"><link rel="prefetch" href="/assets/js/29.b3100d33.js"><link rel="prefetch" href="/assets/js/3.2a5d4cd5.js"><link rel="prefetch" href="/assets/js/30.fe8fe8c0.js"><link rel="prefetch" href="/assets/js/31.86fec3f7.js"><link rel="prefetch" href="/assets/js/32.24cac061.js"><link rel="prefetch" href="/assets/js/33.f1db2ed0.js"><link rel="prefetch" href="/assets/js/34.c220692f.js"><link rel="prefetch" href="/assets/js/35.9e7b4779.js"><link rel="prefetch" href="/assets/js/36.0cb1d1bc.js"><link rel="prefetch" href="/assets/js/37.7d1fcf79.js"><link rel="prefetch" href="/assets/js/38.bc9bc4b3.js"><link rel="prefetch" href="/assets/js/39.10801a2a.js"><link rel="prefetch" href="/assets/js/4.b4d9a5aa.js"><link rel="prefetch" href="/assets/js/40.c980543d.js"><link rel="prefetch" href="/assets/js/41.3f4581d8.js"><link rel="prefetch" href="/assets/js/42.60b85cdf.js"><link rel="prefetch" href="/assets/js/43.1338528d.js"><link rel="prefetch" href="/assets/js/44.786fc51f.js"><link rel="prefetch" href="/assets/js/45.d65f6744.js"><link rel="prefetch" href="/assets/js/46.543c2b26.js"><link rel="prefetch" href="/assets/js/47.59f19ed2.js"><link rel="prefetch" href="/assets/js/48.60de6b25.js"><link rel="prefetch" href="/assets/js/49.f3df62ef.js"><link rel="prefetch" href="/assets/js/5.013522c1.js"><link rel="prefetch" href="/assets/js/50.fd9871d6.js"><link rel="prefetch" href="/assets/js/51.1fb1863e.js"><link rel="prefetch" href="/assets/js/52.c06ce3f3.js"><link rel="prefetch" href="/assets/js/53.a3d55203.js"><link rel="prefetch" href="/assets/js/54.89ac64bc.js"><link rel="prefetch" href="/assets/js/55.ccf38d1e.js"><link rel="prefetch" href="/assets/js/56.ffb8595b.js"><link rel="prefetch" href="/assets/js/57.5f1bd695.js"><link rel="prefetch" href="/assets/js/58.7463616d.js"><link rel="prefetch" href="/assets/js/59.ea4eb5dd.js"><link rel="prefetch" href="/assets/js/6.72ad7c85.js"><link rel="prefetch" href="/assets/js/60.a2add219.js"><link rel="prefetch" href="/assets/js/61.3eae0362.js"><link rel="prefetch" href="/assets/js/62.801d1658.js"><link rel="prefetch" href="/assets/js/63.b47a17bb.js"><link rel="prefetch" href="/assets/js/64.d5e2bdea.js"><link rel="prefetch" href="/assets/js/65.24d540f4.js"><link rel="prefetch" href="/assets/js/66.09a1ae52.js"><link rel="prefetch" href="/assets/js/67.75bd38e7.js"><link rel="prefetch" href="/assets/js/68.1fe6956e.js"><link rel="prefetch" href="/assets/js/69.d3306c2d.js"><link rel="prefetch" href="/assets/js/7.60760bb7.js"><link rel="prefetch" href="/assets/js/70.95aa4503.js"><link rel="prefetch" href="/assets/js/71.7065ebf0.js"><link rel="prefetch" href="/assets/js/72.55ae5081.js"><link rel="prefetch" href="/assets/js/73.c7624eee.js"><link rel="prefetch" href="/assets/js/74.63bcc7bd.js"><link rel="prefetch" href="/assets/js/75.e2731e20.js"><link rel="prefetch" href="/assets/js/76.1711af80.js"><link rel="prefetch" href="/assets/js/77.f1c4e2d3.js"><link rel="prefetch" href="/assets/js/78.900bc856.js"><link rel="prefetch" href="/assets/js/79.a1b8c47b.js"><link rel="prefetch" href="/assets/js/8.0c261cf2.js"><link rel="prefetch" href="/assets/js/80.7cf435bf.js"><link rel="prefetch" href="/assets/js/81.fa33b2af.js"><link rel="prefetch" href="/assets/js/82.cdabd386.js"><link rel="prefetch" href="/assets/js/83.879fc50c.js"><link rel="prefetch" href="/assets/js/84.7e460788.js"><link rel="prefetch" href="/assets/js/85.339356d5.js"><link rel="prefetch" href="/assets/js/86.d526418c.js"><link rel="prefetch" href="/assets/js/87.12877e38.js"><link rel="prefetch" href="/assets/js/88.d5a7d193.js"><link rel="prefetch" href="/assets/js/89.2f4a62c2.js"><link rel="prefetch" href="/assets/js/9.50eda380.js"><link rel="prefetch" href="/assets/js/90.6d83f5bf.js"><link rel="prefetch" href="/assets/js/91.f3364825.js"><link rel="prefetch" href="/assets/js/92.158fcc7a.js"><link rel="prefetch" href="/assets/js/93.0c4e5f88.js"><link rel="prefetch" href="/assets/js/94.c5725f80.js"><link rel="prefetch" href="/assets/js/95.dc61d501.js"><link rel="prefetch" href="/assets/js/96.3a598fc5.js"><link rel="prefetch" href="/assets/js/97.712aa8be.js"><link rel="prefetch" href="/assets/js/98.e757fe7a.js"><link rel="prefetch" href="/assets/js/99.1418024a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.35bcedcf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">SUCKED BloG</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/other/index.html" class="nav-link">
+  index
+</a></div><div class="nav-item"><a href="/question/index.html" class="nav-link">
+  question
+</a></div><div class="nav-item"><a href="/audition/index.html" class="nav-link">
+  audition
+</a></div><div class="nav-item"><a href="/point/index.html" class="nav-link">
+  point
+</a></div><div class="nav-item"><a href="/work/index.html" class="nav-link">
+  work
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="url" class="dropdown-title"><span class="title">url</span> <span class="arrow down"></span></button> <button type="button" aria-label="url" class="mobile-dropdown-title"><span class="title">url</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/config.html" class="nav-link">
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="https://git.code.tencent.com/u/nampy" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯工蜂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/willwxt" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://nbcb.icu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  导航首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/other/index.html" class="nav-link">
+  index
+</a></div><div class="nav-item"><a href="/question/index.html" class="nav-link">
+  question
+</a></div><div class="nav-item"><a href="/audition/index.html" class="nav-link">
+  audition
+</a></div><div class="nav-item"><a href="/point/index.html" class="nav-link">
+  point
+</a></div><div class="nav-item"><a href="/work/index.html" class="nav-link">
+  work
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="url" class="dropdown-title"><span class="title">url</span> <span class="arrow down"></span></button> <button type="button" aria-label="url" class="mobile-dropdown-title"><span class="title">url</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/config.html" class="nav-link">
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="https://git.code.tencent.com/u/nampy" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯工蜂
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/willwxt" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://nbcb.icu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  导航首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>1. 单例模式：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这 个实例。</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/question/mashibing/22-23designpattern.html#_1-单例模式-确保某一个类只有一个实例-而且自行实例化并向整个系统提供这-个实例。" class="sidebar-link">1. 单例模式：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这 个实例。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_2-工厂模式-定义一个用于创建对象的接口-让子类决定实例化哪一个类。工厂-方法使一个类的实例化延迟到其子类。" class="sidebar-link">2. 工厂模式：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂 方法使一个类的实例化延迟到其子类。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_3-抽象工厂模式-为创建一组相关或相互依赖的对象提供一个接口-而且无须指-定它们的具体类。" class="sidebar-link">3. 抽象工厂模式：为创建一组相关或相互依赖的对象提供一个接口，而且无须指 定它们的具体类。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_4-建造者模式-将一个复杂对象的构建与它的表示分离-使得同样的构建过程可-以创建不同的表示。" class="sidebar-link">4.建造者模式：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可 以创建不同的表示。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_5-原型模式-用原型实例指定创建对象的种类-并且通过拷贝这些原型创建新的-对象。" class="sidebar-link">5. 原型模式：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的 对象。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_6-适配器模式-将一个类的接口变换成客户端所期待的另一种接口-从而使原本-因接口不匹配而无法在一起工作的两个类能够在一起工作。" class="sidebar-link">6. 适配器模式：将一个类的接口变换成客户端所期待的另一种接口，从而使原本 因接口不匹配而无法在一起工作的两个类能够在一起工作。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_7-装饰器模式-动态地给一个对象添加一些额外的职责。就增加功能来说-装饰-器模式相比生成子类更为灵活-。" class="sidebar-link">7. 装饰器模式：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰 器模式相比生成子类更为灵活 。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_8-代理模式-为其他对象提供一种代理以控制对这个对象的访问。" class="sidebar-link">8. 代理模式：为其他对象提供一种代理以控制对这个对象的访问。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_9-中介者模式-用一个中介对象封装一系列的对象交互-中介者使各对象不需要-显示地相互作用-从而使其耦合松散-而且可以独立地改变它们之间的交互。" class="sidebar-link">9. 中介者模式：用一个中介对象封装一系列的对象交互，中介者使各对象不需要 显示地相互作用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_10-命令模式-将一个请求封装成一个对象-从而让你使用不同的请求把客户端-参数化-对请求排队或者记录请求日志-可以提供命令的撤销和恢复功能。" class="sidebar-link">10. 命令模式：将一个请求封装成一个对象，从而让你使用不同的请求把客户端 参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_11-责任链模式-使多个对象都有机会处理请求-从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链-并沿着这条链传递该请求-直到有对象处理它为止。" class="sidebar-link">11.责任链模式：使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_12-策略模式-定义一组算法-将每个算法都封装起来-并且使它们之间可以互换。" class="sidebar-link">12.策略模式：定义一组算法，将每个算法都封装起来，并且使它们之间可以互换。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_13-迭代器模式-它提供一种方法访问一个容器对象中各个元素-而又不需暴露该对象的内部细节。" class="sidebar-link">13.迭代器模式：它提供一种方法访问一个容器对象中各个元素，而又不需暴露该对象的内部细节。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_14-组合模式-将对象组合成树形结构以表示-部分-整体-的层次结构-使得用户对单个对象和组合对象的使用具有一致性。" class="sidebar-link">14.组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_15-观察者模式-定义对象间一种一对多的依赖关系-使得每当一个对象改变状态-则所有依赖于它的对象都会得到通知并被自动更新。" class="sidebar-link">15.观察者模式：定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_16-门面模式-要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口-使得子系统更易于使用。" class="sidebar-link">16.门面模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_17-备忘录模式-在不破坏封装性的前提下-捕获一个对象的内部状态-并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。" class="sidebar-link">17.备忘录模式：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_18-访问者模式-封装一些作用于某种数据结构中的各元素的操作-它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。" class="sidebar-link">18.访问者模式：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_19-状态模式-当一个对象内在状态改变时允许其改变行为-这个对象看起来像改变了其类。" class="sidebar-link">19.状态模式：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_20-解释器模式-给定一门语言-定义它的文法的一种表示-并定义一个解释器-该解释器使用该表示来解释语言中的句子。" class="sidebar-link">20.解释器模式：给定一门语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_21-享元模式-使用共享对象的方法-用来尽可能减少内存使用量以及分享资讯。" class="sidebar-link">21.享元模式：使用共享对象的方法，用来尽可能减少内存使用量以及分享资讯。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_22-桥梁模式-将抽象和实现解耦-使得两者可以独立地变化。" class="sidebar-link">22.桥梁模式：将抽象和实现解耦，使得两者可以独立地变化。</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/question/mashibing/22-23designpattern.html#_23-模板方法模式-定义一个操作中的算法的框架-而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。" class="sidebar-link">23.模板方法模式：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1-单例模式-确保某一个类只有一个实例-而且自行实例化并向整个系统提供这-个实例。"><a href="#_1-单例模式-确保某一个类只有一个实例-而且自行实例化并向整个系统提供这-个实例。" class="header-anchor">#</a> 1. 单例模式：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这 个实例。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>（1）懒汉式 public class Singleton {  
+    /* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载  */       private static Singleton instance = null;  
+    /* 私有构造方法，防止被实例化 */      
+    private Singleton() {    
+    }  
+    /* 1:懒汉式，静态工程方法，创建实例 */       public static Singleton getInstance() {           if (instance == null) {               instance = new Singleton();          
+   	 	}       
+   		return instance;     
+   	 	}  
+   	 } 
+    （2）饿汉式 
+    public class Singleton {  
+    	/* 持有私有静态实例，防止被引用 */       			
+    	private static Singleton instance = new Singleton();  
+    	/* 私有构造方法，防止被实例化 */      
+   	 	private Singleton() {   
+    	}  
+    /* 1:懒汉式，静态工程方法，创建实例 */       public static Singleton getInstance() {         
+    	return instance;     
+    }   
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>使用场景：</p> <ul><li>要求生成唯一序列号的环境；</li> <li>在整个项目中需要一个共享访问点或共享数据，例如一个Web页面上的计数 器，可以不用把每次刷新都记录到数据库中，使用单例模式保持计数器的值，并 确保是线程安全的；</li> <li>创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源；</li> <li>需要定义大量的静态常量和静态方法（如工具类）的环境，可以采用单例模式 （当然，也可以直接声明为static的方式）。</li></ul> <h2 id="_2-工厂模式-定义一个用于创建对象的接口-让子类决定实例化哪一个类。工厂-方法使一个类的实例化延迟到其子类。"><a href="#_2-工厂模式-定义一个用于创建对象的接口-让子类决定实例化哪一个类。工厂-方法使一个类的实例化延迟到其子类。" class="header-anchor">#</a> 2. 工厂模式：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂 方法使一个类的实例化延迟到其子类。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>接口
+
+public interface Fruit {       
+public void print();   }   
+2个实现类
+public class Apple implements Fruit{  
+    @Override       
+    public void print() {           
+ 	   System.out.println(&quot;我是一个苹果&quot;);       
+ 	}  
+}   
+public class Orange implements Fruit{  
+    @Override       
+    public void print() {           
+ 	   System.out.println(&quot;我是一个橘子&quot;);  
+    }  
+}   
+
+工厂类
+
+public class FruitFactory {       
+	public Fruit produce(String type){           
+		if(type.equals(&quot;apple&quot;)){               
+			return new Apple();           
+		}else if(type.equals(&quot;orange&quot;)){               
+			return new Orange();           
+		}else{               
+			System.out.println(&quot;请输入正确的类型!&quot;);                 
+		return null;            
+		}       
+	}   
+}  
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><p>使用场景：jdbc连接数据库，硬件访问，降低对象的产生和销毁</p> <h2 id="_3-抽象工厂模式-为创建一组相关或相互依赖的对象提供一个接口-而且无须指-定它们的具体类。"><a href="#_3-抽象工厂模式-为创建一组相关或相互依赖的对象提供一个接口-而且无须指-定它们的具体类。" class="header-anchor">#</a> 3. 抽象工厂模式：为创建一组相关或相互依赖的对象提供一个接口，而且无须指 定它们的具体类。</h2> <p>相对于工厂模式，我们可以新增产品类（只需要实现产品接口），只需要同时新 增一个工厂类，客户端就可以轻松调用新产品的代码。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>interface food{} 
+class A implements food{} 
+class B implements food{} 
+interface produce{ food get();} 
+class FactoryForA implements produce{     
+	@Override     
+	public food get() {         
+		return new A();    
+    } 
+} 
+class FactoryForB implements produce{     
+	@Override     
+	public food get() {         
+	return new B();     
+	} 
+} 
+public class AbstractFactory {     
+	public void ClientCode(String name){         
+		food x= new FactoryForA().get();         
+		x = new FactoryForB().get();     
+	} 
+} 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>使用场景：一个对象族（或是一组没有任何关系的对象）都有相同的约束。 涉及不同操作系统的时候，都可以考虑使用抽象工厂模式</p> <h2 id="_4-建造者模式-将一个复杂对象的构建与它的表示分离-使得同样的构建过程可-以创建不同的表示。"><a href="#_4-建造者模式-将一个复杂对象的构建与它的表示分离-使得同样的构建过程可-以创建不同的表示。" class="header-anchor">#</a> 4.建造者模式：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可 以创建不同的表示。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class Build {     
+	static class Student{     
+	String name = null ;         
+		int number = -1 ;         
+		String sex = null ;     
+	public Student(Builder builder)         {     
+	this.name=builder.name;     
+	this.number=builder.number;     
+	this.sex=builder.sex;     
+	}         
+		static class Builder{
+            
+		String name = null ;             
+		int number = -1 ;             
+		String sex = null ;             
+		public Builder setName(String name){                 
+		this.name=name;                 
+		return this;             
+		}             
+		public Builder setNumber(int number){                 
+		this.number=number;                 
+		return this;             
+		}             
+		public Builder setSex(String sex){                 
+		this.sex=sex;                 
+		return this;             
+		}             
+		public Student build(){                 
+		return new Student(this);            
+		}
+ }                 
+}     
+public static void main(String[] args) {     
+Student A=new Student.Builder().setName(&quot;张 三&quot;).setNumber(1).build();     Student B=new Student.Builder().setSex(&quot;男&quot;).setName(&quot;李四&quot;).build();      
+	System.out.println(A.name+&quot; &quot;+A.number+&quot; &quot;+A.sex);         				System.out.println(B.name+&quot; &quot;+B.number+&quot; &quot;+B.sex);     
+	} 
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><p>使用场景：</p> <ol><li>相同的方法，不同的执行顺序，产生不同的事件结果时，可以采用建造者模 式。</li> <li>多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同 时，则可以使用该模式。</li> <li>产品类非常复杂，或者产品类中的调用顺序不同产生了不同的效能，这个时候 使用建造者模式非常合适。</li></ol> <h2 id="_5-原型模式-用原型实例指定创建对象的种类-并且通过拷贝这些原型创建新的-对象。"><a href="#_5-原型模式-用原型实例指定创建对象的种类-并且通过拷贝这些原型创建新的-对象。" class="header-anchor">#</a> 5. 原型模式：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的 对象。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class Prototype implements Cloneable{     
+	private String name;     
+	public String getName() {         
+		return name;     
+	}     
+	public void setName(String name) {         
+	this.name = name;     
+	}     
+	@Override     
+	protected Object clone()   {         
+		try {             
+			return super.clone();         
+		} catch (CloneNotSupportedException e) {             
+			e.printStackTrace();         
+		}finally {             
+			return null;         
+		}     
+	}     
+	public static void main ( String[] args){         
+		Prototype pro = new Prototype();         
+		Prototype pro1 = (Prototype)pro.clone();     
+	}
+} 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>原型模式实际上就是实现Cloneable接口，重写clone（）方法。</p> <p>使用原型模式的优点：</p> <p>1.性能优良</p> <p>原型模式是在内存二进制流的拷贝，要比直接new一个对象性能好很多，特别是 要在一个循环体内产生大量的对象时，原型模式可以更好地体现其优点。</p> <p>2.逃避构造函数的约束</p> <p>这既是它的优点也是缺点，直接在内存中拷贝，构造函数是不会执行的（参见 13.4节）。</p> <p>使用场景：</p> <p>资源优化场景 类初始化需要消化非常多的资源，这个资源包括数据、硬件资源等。</p> <p>性能和安全要求的场景 通过new产生一个对象需要非常繁琐的数据准备或访问权限，则可以使用原型模 式。</p> <p>一个对象多个修改者的场景 一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值时，可 以考虑使用原型模式拷贝多个对象供调用者使用。</p> <p>浅拷贝和深拷贝：</p> <p>浅拷贝：Object类提供的方法clone只是拷贝本对象，其对象内部的数组、引用 对象等都不拷贝，还是指向原生对象的内部元素地址，这种拷贝就叫做浅拷贝， 其他的原始类型比如int、long、char、string（当做是原始类型）等都会被拷 贝。</p> <p>注意：　使用原型模式时，引用的成员变量必须满足两个条件才不会被拷贝：一 是类的成员变量，而不是方法内变量；二是必须是一个可变的引用对象，而不是 一个原始类型或不可变对象。</p> <p>深拷贝：对私有的类变量进行独立的拷贝</p> <p>如：this.arrayList = (ArrayList)this.arrayList.clone();</p> <h2 id="_6-适配器模式-将一个类的接口变换成客户端所期待的另一种接口-从而使原本-因接口不匹配而无法在一起工作的两个类能够在一起工作。"><a href="#_6-适配器模式-将一个类的接口变换成客户端所期待的另一种接口-从而使原本-因接口不匹配而无法在一起工作的两个类能够在一起工作。" class="header-anchor">#</a> 6. 适配器模式：将一个类的接口变换成客户端所期待的另一种接口，从而使原本 因接口不匹配而无法在一起工作的两个类能够在一起工作。</h2> <p>主要可分为3种：</p> <ol><li>类适配：创建新类，继承源类，并实现新接口，例如  class  adapter extends oldClass  implements newFunc{}</li> <li>对象适配：创建新类持源类的实例，并实现新接口，例如  class adapter implements newFunc { private oldClass oldInstance ;}</li> <li>接口适配：创建新的抽象类实现旧接口方法。例如  abstract class adapter implements oldClassFunc { void newFunc();}</li></ol> <p>使用场景：</p> <p>你有动机修改一个已经投产中的接口时，适配器模式可能是适合你的模式。比 如系统扩展了，需要使用一个已有或新建立的类，但这个类又不符合系统的接 口，怎么办？使用适配器模式，这也是我们例子中提到的。</p> <h2 id="_7-装饰器模式-动态地给一个对象添加一些额外的职责。就增加功能来说-装饰-器模式相比生成子类更为灵活-。"><a href="#_7-装饰器模式-动态地给一个对象添加一些额外的职责。就增加功能来说-装饰-器模式相比生成子类更为灵活-。" class="header-anchor">#</a> 7. 装饰器模式：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰 器模式相比生成子类更为灵活 。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>interface Source{ void method();} 
+public class Decorator implements Source{     
+	private Source source ;     
+	public void decotate1(){         
+		System.out.println(&quot;decorate&quot;);     
+	}     
+	@Override     
+	public void method() {         
+		decotate1();         
+		source.method();     
+	} 
+} 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>使用场景：</p> <ol><li>需要扩展一个类的功能，或给一个类增加附加功能。</li> <li>需要动态地给一个对象增加功能，这些功能可以再动态地撤销。</li> <li>需要为一批的兄弟类进行改装或加装功能，当然是首选装饰模式。</li></ol> <h2 id="_8-代理模式-为其他对象提供一种代理以控制对这个对象的访问。"><a href="#_8-代理模式-为其他对象提供一种代理以控制对这个对象的访问。" class="header-anchor">#</a> 8. 代理模式：为其他对象提供一种代理以控制对这个对象的访问。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>interface Source{ void method();} 
+class OldClass implements Source{     
+	@Override     
+	public void method() {     
+	} 
+} 
+class Proxy implements Source{     
+	private Source source = new OldClass();     
+	void doSomething(){}     
+	@Override    
+	public void method() {         
+		new Class1().Func1();         
+		source.method();         
+		new Class2().Func2();         
+		doSomething();     
+	} 
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_9-中介者模式-用一个中介对象封装一系列的对象交互-中介者使各对象不需要-显示地相互作用-从而使其耦合松散-而且可以独立地改变它们之间的交互。"><a href="#_9-中介者模式-用一个中介对象封装一系列的对象交互-中介者使各对象不需要-显示地相互作用-从而使其耦合松散-而且可以独立地改变它们之间的交互。" class="header-anchor">#</a> 9. 中介者模式：用一个中介对象封装一系列的对象交互，中介者使各对象不需要 显示地相互作用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public abstract class Mediator {      
+	//定义同事类      
+	protected ConcreteColleague1 c1;      
+	protected ConcreteColleague2 c2;      
+	//通过getter/setter方法把同事类注入进来      
+	public ConcreteColleague1 getC1() {              
+		return c1;      
+	}
+  public void setC1(ConcreteColleague1 c1) {              
+ 	 this.c1 = c1;      
+  }      
+  public ConcreteColleague2 getC2() {             
+ 	 return c2; }     
+  public void setC2(ConcreteColleague2 c2) {       
+	  this.c2 = c2;     
+  }    
+  //中介者模式的业务逻辑     
+  public abstract void doSomething1();     
+  public abstract void doSomething2(); 
+} 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>使用场景： 中介者模式适用于多个对象之间紧密耦合的情况，紧密耦合的标准是：在类图中 出现了蜘蛛网状结构，即每个类都与其他的类有直接的联系。</p> <h2 id="_10-命令模式-将一个请求封装成一个对象-从而让你使用不同的请求把客户端-参数化-对请求排队或者记录请求日志-可以提供命令的撤销和恢复功能。"><a href="#_10-命令模式-将一个请求封装成一个对象-从而让你使用不同的请求把客户端-参数化-对请求排队或者记录请求日志-可以提供命令的撤销和恢复功能。" class="header-anchor">#</a> 10. 命令模式：将一个请求封装成一个对象，从而让你使用不同的请求把客户端 参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。</h2> <p>Receiver接受者角色：该角色就是干活的角色，命令传递到这里是应该被执行的</p> <p>Command命令角色：需要执行的所有命令都在这里声明</p> <p>Invoker调用者角色：接收到命令，并执行命令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//通用Receiver类 
+public abstract class Receiver {     
+	public abstract void doSomething(); 
+} 
+//具体Receiver类 
+public class ConcreteReciver1 extends Receiver{      
+	//每个接收者都必须处理一定的业务逻辑      
+	public void doSomething(){ }  
+} 
+public class ConcreteReciver2 extends Receiver{      
+	//每个接收者都必须处理一定的业务逻辑      
+	public void doSomething(){ }  
+} 
+//抽象Command类 public abstract class Command {     
+	public abstract void execute(); 
+} 
+//具体的Command类 
+public class ConcreteCommand1 extends Command {      
+	//对哪个Receiver类进行命令处理      
+	private Receiver receiver;   
+	//构造函数传递接收者   
+	public ConcreteCommand1(Receiver _receiver){   
+		this.receiver = _receiver;     
+	}  
+	//必须实现一个命令 
+	public void execute() {   
+	//业务处理        
+		this.receiver.doSomething();    
+	} 	
+} 
+public class ConcreteCommand2 extends Command {  
+	//哪个Receiver类进行命令处理   
+	private Receiver receiver; 
+	//构造函数传递接收者
+	public ConcreteCommand2(Receiver _receiver){    
+		this.receiver = _receiver;   
+}     
+//必须实现一个命令 
+ public void execute() {      
+	 //业务处理      
+	 this.receiver.doSomething(); 
+	 }  
+ } 
+ //调用者Invoker类 public class Invoker {   
+ private Command command;
+ 	public void setCommand(Command _command){    
+ 	this.command = _command;  
+ }
+public void action() {      
+	this.command.execute();  
+	} 
+} 
+	//场景类 
+public class Client { 
+	public static void main(String[] args){      
+		Invoker invoker = new Invoker();       
+		Receiver receiver = new ConcreteReceiver1();
+    	Command command = new ConcreteCommand1(receiver);         				invoker.setCommand(command);    
+     	invoker.action(); 
+     } 	
+} 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br></div></div><p>使用场景： 认为是命令的地方就可以采用命令模式，例如，在GUI开发中，一个按钮的点击 是一个命令，可以采用命令模式；模拟DOS命令的时候，当然也要采用命令模
+式；触发－反馈机制的处理等。</p> <h2 id="_11-责任链模式-使多个对象都有机会处理请求-从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链-并沿着这条链传递该请求-直到有对象处理它为止。"><a href="#_11-责任链模式-使多个对象都有机会处理请求-从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链-并沿着这条链传递该请求-直到有对象处理它为止。" class="header-anchor">#</a> 11.责任链模式：使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public abstract class Handler {
+     private Handler nextHandler;
+     //每个处理者都必须对请求做出处理
+     public final Response handleMessage(Request request){
+             Response response = null;  
+             //判断是否是自己的处理级别
+             if(this.getHandlerLevel().equals(request.getRequestLevel())){
+                    response = this.echo(request);
+             }else{  //不属于自己的处理级别
+                    //判断是否有下一个处理者
+                    if(this.nextHandler != null){
+                            response = this.nextHandler.handleMessage(request);
+                    }else{
+                            //没有适当的处理者，业务自行处理
+                    }
+             }
+             return response;
+     }
+     //设置下一个处理者是谁
+     public void setNext(Handler _handler){
+             this.nextHandler = _handler;
+     }
+     //每个处理者都有一个处理级别
+     protected abstract Level getHandlerLevel();
+     //每个处理者都必须实现处理任务
+     protected abstract Response echo(Request request);
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h2 id="_12-策略模式-定义一组算法-将每个算法都封装起来-并且使它们之间可以互换。"><a href="#_12-策略模式-定义一组算法-将每个算法都封装起来-并且使它们之间可以互换。" class="header-anchor">#</a> 12.策略模式：定义一组算法，将每个算法都封装起来，并且使它们之间可以互换。</h2> <p>使用场景：</p> <ol><li><p>多个类只有在算法或行为上稍有不同的场景。</p></li> <li><p>算法需要自由切换的场景。</p></li> <li><p>需要屏蔽算法规则的场景。</p></li></ol> <h2 id="_13-迭代器模式-它提供一种方法访问一个容器对象中各个元素-而又不需暴露该对象的内部细节。"><a href="#_13-迭代器模式-它提供一种方法访问一个容器对象中各个元素-而又不需暴露该对象的内部细节。" class="header-anchor">#</a> 13.迭代器模式：它提供一种方法访问一个容器对象中各个元素，而又不需暴露该对象的内部细节。</h2> <p>迭代器模式已经被淘汰，java中已经把迭代器运用到各个聚集类（collection）中了，使用java自带的迭代器就已经满足我们的需求了。</p> <h2 id="_14-组合模式-将对象组合成树形结构以表示-部分-整体-的层次结构-使得用户对单个对象和组合对象的使用具有一致性。"><a href="#_14-组合模式-将对象组合成树形结构以表示-部分-整体-的层次结构-使得用户对单个对象和组合对象的使用具有一致性。" class="header-anchor">#</a> 14.组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class Composite extends Component {
+     //构件容器
+     private ArrayList componentArrayList = new ArrayList();
+     //增加一个叶子构件或树枝构件
+     public void add(Component component){
+             this.componentArrayList.add(component);
+     }
+     //删除一个叶子构件或树枝构件
+     public void remove(Component component){
+this.componentArrayList.remove(component);
+     }
+     //获得分支下的所有叶子构件和树枝构件
+     public ArrayList getChildren(){
+             return this.componentArrayList;
+     }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>使用场景：</p> <ol><li><p>维护和展示部分-整体关系的场景，如树形菜单、文件和文件夹管理。</p></li> <li><p>从一个整体中能够独立出部分模块或功能的场景。</p></li></ol> <h2 id="_15-观察者模式-定义对象间一种一对多的依赖关系-使得每当一个对象改变状态-则所有依赖于它的对象都会得到通知并被自动更新。"><a href="#_15-观察者模式-定义对象间一种一对多的依赖关系-使得每当一个对象改变状态-则所有依赖于它的对象都会得到通知并被自动更新。" class="header-anchor">#</a> 15.观察者模式：定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public abstract class Subject {
+     //定义一个观察者数组
+     private Vector obsVector = new Vector();
+     //增加一个观察者
+     public void addObserver(Observer o){
+             this.obsVector.add(o);
+     }
+     //删除一个观察者
+     public void delObserver(Observer o){
+             this.obsVector.remove(o);
+     }
+     //通知所有观察者
+     public void notifyObservers(){
+             for(Observer o:this.obsVector){
+                     o.update();
+}
+     }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>使用场景：</p> <ol><li><p>关联行为场景。需要注意的是，关联行为是可拆分的，而不是“组合”关系。</p></li> <li><p>事件多级触发场景。</p></li> <li><p>跨系统的消息交换场景，如消息队列的处理机制</p></li></ol> <h2 id="_16-门面模式-要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口-使得子系统更易于使用。"><a href="#_16-门面模式-要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口-使得子系统更易于使用。" class="header-anchor">#</a> 16.门面模式：要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class Facade {
+    private subSystem1 subSystem1 = new subSystem1();
+    private subSystem2 subSystem2 = new subSystem2();
+    private subSystem3 subSystem3 = new subSystem3();
+    public void startSystem(){
+        subSystem1.start();
+        subSystem2.start();         
+        subSystem3.start();
+    }
+    public void stopSystem(){
+        subSystem1.stop();
+        subSystem2.stop();         
+        subSystem3.stop();
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>使用场景：</p> <ol><li><p>为一个复杂的模块或子系统提供一个供外界访问的接口</p></li> <li><p>子系统相对独立——外界对子系统的访问只要黑箱操作即可</p></li> <li><p>预防低水平人员带来的风险扩散</p></li></ol> <h2 id="_17-备忘录模式-在不破坏封装性的前提下-捕获一个对象的内部状态-并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。"><a href="#_17-备忘录模式-在不破坏封装性的前提下-捕获一个对象的内部状态-并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。" class="header-anchor">#</a> 17.备忘录模式：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class Originator {
+    private String state;
+    /**
+*	工厂方法，返回一个新的备忘录对象
+     */
+    public Memento createMemento(){
+        return new Memento(state);
+    }
+    /**
+*	将发起人恢复到备忘录对象所记载的状态
+     */
+    public void restoreMemento(Memento memento){
+        this.state = memento.getState();
+    }
+    public String getState() {
+        return state;
+    }
+    public void setState(String state) {
+        this.state = state;
+        System.out.println(&quot;当前状态：&quot; + this.state);
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>使用场景：</p> <ol><li><p>需要保存和恢复数据的相关状态场景。</p></li> <li><p>提供一个可回滚（rollback）的操作。</p></li> <li><p>需要监控的副本场景中。</p></li> <li><p>数据库连接的事务管理就是用的备忘录模式。</p></li></ol> <h2 id="_18-访问者模式-封装一些作用于某种数据结构中的各元素的操作-它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。"><a href="#_18-访问者模式-封装一些作用于某种数据结构中的各元素的操作-它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。" class="header-anchor">#</a> 18.访问者模式：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。</h2> <p>使用场景：</p> <ol><li><p>一个对象结构包含很多类对象，它们有不同的接口，而你想对这些对象实施一些依赖于其具体类的操作，也就说是用迭代器模式已经不能胜任的情景。</p></li> <li><p>需要对一个对象结构中的对象进行很多不同并且不相关的操作，而你想避免让这些操作“污染”这些对象的类。</p></li></ol> <h2 id="_19-状态模式-当一个对象内在状态改变时允许其改变行为-这个对象看起来像改变了其类。"><a href="#_19-状态模式-当一个对象内在状态改变时允许其改变行为-这个对象看起来像改变了其类。" class="header-anchor">#</a> 19.状态模式：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类。</h2> <p>使用场景：</p> <ol><li><p>行为随状态改变而改变的场景这也是状态模式的根本出发点，例如权限设计，人员的状态不同即使执行相同的行为结果也会不同，在这种情况下需要考虑使用状态模式。</p></li> <li><p>条件、分支判断语句的替代者</p></li></ol> <h2 id="_20-解释器模式-给定一门语言-定义它的文法的一种表示-并定义一个解释器-该解释器使用该表示来解释语言中的句子。"><a href="#_20-解释器模式-给定一门语言-定义它的文法的一种表示-并定义一个解释器-该解释器使用该表示来解释语言中的句子。" class="header-anchor">#</a> 20.解释器模式：给定一门语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。</h2> <p>使用场景：</p> <ol><li><p>重复发生的问题可以使用解释器模式</p></li> <li><p>一个简单语法需要解释的场景</p></li></ol> <h2 id="_21-享元模式-使用共享对象的方法-用来尽可能减少内存使用量以及分享资讯。"><a href="#_21-享元模式-使用共享对象的方法-用来尽可能减少内存使用量以及分享资讯。" class="header-anchor">#</a> 21.享元模式：使用共享对象的方法，用来尽可能减少内存使用量以及分享资讯。</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>abstract class flywei{ }
+public class Flyweight extends flywei{
+    Object obj ;
+    public Flyweight(Object obj){
+        this.obj = obj;
+    }
+}
+class  FlyweightFactory{     private HashMap data;
+    public FlyweightFactory(){ data = new HashMap&lt;&gt;();}
+    public Flyweight getFlyweight(Object object){
+        if ( data.containsKey(object)){
+            return data.get(object);
+        }else {
+            Flyweight flyweight = new Flyweight(object);
+            data.put(object,flyweight);
+            return flyweight;
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>使用场景：</p> <ol><li><p>系统中存在大量的相似对象。</p></li> <li><p>细粒度的对象都具备较接近的外部状态，而且内部状态与环境无关，也就是说对象没有特定身份。</p></li> <li><p>需要缓冲池的场景。</p></li></ol> <h2 id="_22-桥梁模式-将抽象和实现解耦-使得两者可以独立地变化。"><a href="#_22-桥梁模式-将抽象和实现解耦-使得两者可以独立地变化。" class="header-anchor">#</a> 22.桥梁模式：将抽象和实现解耦，使得两者可以独立地变化。</h2> <p>Circle类将DrwaApi与Shape类进行了桥接，</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>interface DrawAPI {
+    public void drawCircle(int radius, int x, int y);
+}
+class RedCircle implements DrawAPI {
+    @Override
+    public void drawCircle(int radius, int x, int y) {
+        System.out.println(&quot;Drawing Circle[ color: red, radius: &quot;
+                + radius +&quot;, x: &quot; +x+&quot;, &quot;+ y +&quot;]&quot;);
+    }
+}
+class GreenCircle implements DrawAPI {
+    @Override
+    public void drawCircle(int radius, int x, int y) {
+        System.out.println(&quot;Drawing Circle[ color: green, radius: &quot;
+                + radius +&quot;, x: &quot; +x+&quot;, &quot;+ y +&quot;]&quot;);
+    }
+}
+abstract class Shape {
+    protected DrawAPI drawAPI;
+    protected Shape(DrawAPI drawAPI){
+        this.drawAPI = drawAPI;
+    }
+    public abstract void draw();
+}
+class Circle extends Shape {
+    private int x, y, radius;
+    public Circle(int x, int y, int radius, DrawAPI drawAPI) {
+        super(drawAPI);
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    public void draw() {
+        drawAPI.drawCircle(radius,x,y);
+    }
+}
+//客户端使用代码
+Shape redCircle = new Circle(100,100, 10, new RedCircle()); Shape greenCircle = new Circle(100,100, 10, new GreenCircle()); redCircle.draw(); greenCircle.draw(); 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p>使用场景：</p> <ol><li><p>不希望或不适用使用继承的场景</p></li> <li><p>接口或抽象类不稳定的场景</p></li> <li><p>重用性要求较高的场景</p></li></ol> <h2 id="_23-模板方法模式-定义一个操作中的算法的框架-而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。"><a href="#_23-模板方法模式-定义一个操作中的算法的框架-而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。" class="header-anchor">#</a> 23.模板方法模式：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</h2> <p>使用场景：</p> <ol><li><p>多个子类有公有的方法，并且逻辑基本相同时。</p></li> <li><p>重要、复杂的算法，可以把核心算法设计为模板方法，周边的相关细节功能则由各个子类实现。</p></li> <li><p>重构时，模板方法模式是一个经常使用的模式，把相同的代码抽取到父类中，然后通过钩子函数（见“模板方法模式的扩展”）约束其行为。</p></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/24/2021, 8:31:13 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.42575a28.js" defer></script><script src="/assets/js/2.0d7d09b8.js" defer></script><script src="/assets/js/129.6100ddb1.js" defer></script>
+  </body>
+</html>
